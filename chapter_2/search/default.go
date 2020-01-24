@@ -11,5 +11,5 @@ func init() {
 
 // Search implements the behavior for the default matcher
 func (m defaultMatcher) Search(feed *Feed, searchTerm string) ([]*Result, error) {
-
+	return nil, nil
 }
