@@ -4,8 +4,8 @@ package words
 import "strings"
 
 // CountWords counts the number of words in the speciefied
-// string and returns the cont
-func CountWords(text string) (cont int) {
+// string and returns the count
+func CountWords(text string) (count int) {
 	count = len(strings.Fields(text))
 	return
 }
