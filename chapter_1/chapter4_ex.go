@@ -112,4 +112,113 @@ func foo(array *[1e6]int) {
 	...
 }
 
-//
+//slices
+
+// create a slice of strings
+// contains a lenght and capacity of 5 elements
+slice := make([]string, 5)
+
+// create a slice of integers
+// contains a lenght of 3 and has a capacity of 5 elements
+slice := make([]int, 3, 5)
+
+// create a slice of integers
+// make the length larger than the capacity
+slice := make([]int, 5, 3)
+// Error, len larger than cap in make([]itn)
+
+// create a slice of strings
+// contains a lenght and capacity of 5 elements
+slice := []string{"red", "blue", "green", "yellow", "pink"}
+// create slice of integers lng and cap of 3 elements
+slice := []int{10, 20, 30}
+
+// create a slice of strings
+// initialize the 100th element with an empty string
+slice := []string{99: ""}
+
+// diffrence between value inside []
+// this is an array of 3 elements
+array := [3]int{10, 20, 30}
+// this is a slice with lenght and cap of 3
+slice := []int{10, 20, 30}
+
+// create a nil slice of integers
+var slice []int
+
+// use make to create an empty slice of integers
+slice := make([]int, 0)
+// use a slice literal to create am empty slice of integers
+slice := []int{}
+
+// create a slice of integers contains a len and cap of 5
+slice := []int{10, 20, 30, 40, 50}
+// change the value of index 1
+slice[1] = 25
+
+// create a slice of int len and cap of 5
+slice := []int{10, 20, 30, 40, 50}
+// create a new slice contains a len of 2 and cap of 4
+newSlice := slice[1:3]
+// for slice[i:j] with underlying array of capacity k
+// lenght:   j - i
+// capacity: k -i
+// for slice
+
+// slices and maps
+slice := []int{10, 20, 30, 40}
+// iterate over each element and display each value
+for index, value := range slice {
+	fmt.Printf("Index: %d Value: %d/n", index, value)
+}
+Output:
+Index: 0 Value: 10
+Index: 1 Value: 20
+Index: 2 Value: 30
+Index: 3 Value: 40
+
+slice := []int{10, 20, 30, 40}
+// iterate over each element and display each value and addresses
+for index, value := range slice {
+	fmt.Printf("Value: %d Value-Addr: %X ElemeAddr: %X\n", value, &value, &slice[index])
+}
+Output:
+Value: 10 Value-Addr: 10500168 ElemAddr: 1052E100
+Value: 20 Value-Addr: 10500168 ElemAddr: 1052E104
+Value: 30 Value-Addr: 10500168 ElemAddr: 1052E108
+Value: 40 Value-Addr: 10500168 ElemAddr: 1052E10C
+
+slice := []int{10, 20, 30, 40}
+// iterate over each element and display each value
+for _, value := range slice {
+	fmt.Printf("Value: %d\n", value)
+}
+Output:
+Value: 10
+Value: 20
+Value: 30
+Value: 40
+
+slice := []int{10, 20, 30, 40}
+// iterate over each element starting at el 3
+for index := 2; index < len(slice); index++ {
+	fmt.Printf("Index: %d Value: %d\n", index, slice[index])
+}
+Output:
+Index: 2 Value: 30
+Index: 3 Value: 40
+
+// create a slice of a slice of int
+slice := [][]int{{10}, {100, 200}}
+// append the value of 20 to the 1st slice of int
+slice[0] = append(slice[0], 20)
+
+// allocate a slice of 1 mil int
+slice := make([]int, 1e6)
+// pass the slice to the func foo
+func foo(slice)
+// func foo accepts a slice of int and returns the slice back
+func foo(slice []int) []int {
+	...
+	return slice
+}
