@@ -222,3 +222,90 @@ func foo(slice []int) []int {
 	...
 	return slice
 }
+
+// create a map with a key of type string and a value of type int
+dict := make(map[string]int)
+// create a map with a key and value of type string
+// initialize map with 2 key/value pairs
+dict := map[string]string{"red": "#da1337", "orange": "#e95a22"}
+
+// create a map using a slice of strings as the key
+dict := map[[]string]int{}
+// invalid map key type []string
+
+// create a map using a slice of strings as the value
+dict := map[int][]string{}
+// ok
+
+// create an empty map to store colors and their color codes
+colors := map[string]string{}
+// add the red color code to the map
+colors["red"] = "#da1337"
+
+// create a nil map by just declaring the map
+var colors map[string]string
+// add the red color code to the map
+colors["red"] = "#da1337"
+// error assignment to entry in nil map
+
+// retrieve the value for the key "blue"
+value, exists := colors["blue"]
+// did this key exist?
+if exists {
+	fmt.Printf(value)
+}
+
+// retrieve the value for the key "blue"
+value := colors["blue"]
+// did this key exist?
+if value != "" {
+	fmt.Printf(value)
+}
+
+// create a map of colors and color hex codes
+colors := map[string]string{
+	"AliceBlue":   "#f0f8ff",
+	"Coral":       "#ff7F50",
+	"DarkGrey":    "#a9a9a9",
+	"ForestGreen": "#228b22",
+}
+
+// display all the colors in the map
+for key, value := range colors {
+	fmt.Printf("Key: %s Value: %s\n", key, value)
+}
+
+// remove the key/value pair for the key "Coral"
+delete(colors, "Coral")
+// display all the colors in the map
+for key, value := range colors {
+	fmt.Printf("Key: %s Value: %s\n", key, value)
+}
+
+func main() {
+	// create a map of colors and color hex codes
+	colors := map[string]string{
+		"AliceBlue":   "#f0f8ff",
+		"Coral":       "#ff7F50",
+		"DarkGrey":    "#a9a9a9",
+		"ForestGreen": "#228b22",
+	}
+
+	// display all the colors in the map
+	for key, value := range colors {
+		fmt.Printf("Key: %s Value: %s\n", key, value)
+	}
+
+	// call the func to remove the specified key
+	removeColor(colors, "Coral")
+
+	// display all the colors in the map
+	for key, value := range colors {
+		fmt.Printf("Key: %s Value: %s\n", key, value)
+	}
+}
+
+//removeColor removes keys from the specified map
+func removeColor(colors map[string]string, key string) {
+	delete(colors, key)
+}
