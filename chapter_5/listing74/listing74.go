@@ -16,7 +16,7 @@ func main() {
 
 	// set the exported fields from the unexported inner type
 	a.Name = "Bill"
-	a.email = "bill@email.com"
+	a.Email = "bill@email.com"
 
-	fmt.Printf("User: %v\n", u)
+	fmt.Printf("User: %v\n", a)
 }
