@@ -2,6 +2,7 @@
 package main
 
 import (
+	"io"
 	"io/iotil"
 	"log"
 	"os"
@@ -33,7 +34,7 @@ func init() {
 		"WARNING: ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 
-	Error = log.New(os.Stdout,
+	Error = log.New(io.MultiWriter(file, os.Stderr),
 		"ERROR: ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 }
